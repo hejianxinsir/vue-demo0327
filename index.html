@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue-demo0327</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+
+	</style>
+</head>
+<body>
+
+	<div id="r1">
+		<child1 parent1="123"></child1>
+		<child2 :parent2="[222]"></child2>
+	</div>
+
+	<div id="r2">
+		<child msg="我是父组件传递的内容"></child>
+	</div>
+
+	<div id="r3" style="border: 3px solid black; width: 500px; margin: 30px">
+		<input type="text" v-model="width">
+		<child :width="width" parent="333"></child>
+	</div>
+	<hr>
+
+	<div id="r4" style="border: 5px solid gray; margin: 30px 0;">
+		我是输入框：<input type="text" v-model="width">
+		<child parent="999" :width="width"></child>
+	</div>
+	<hr>
+
+	<div id="r5" style="border: 5px solid red;">
+		我也是输入框：<input type="text" v-model="width">
+		<child parent="888" :width="width"></child>
+	</div>
+	<hr>
+
+	<h1>数据验证</h1>
+	<div id="r6">
+		我是子组件：<child :a="a" :b="b"></child>
+	</div>
+
+	<div id="r7">
+		<child :a="a" :b="b" :c="c"></child>
+	</div>
+	<hr>
+
+	<div id="r8">
+		<child :a="a" :b="b" :c="c" :e="e" :f="f" :oo="oo"></child><br>
+		输入：<input type="text" v-model="a">
+	</div>
+	<hr>
+
+	<div id="r9">
+		卡内余额：{{a}}<br>
+		<child @change="handleTotal"></child>
+	</div>
+	<hr>
+
+	<div id="r99">
+		{{total}}
+		<child @change="handleChange"></child>
+	</div>
+	<hr>
+
+	<div id="rr">
+		{{total}}
+		<child @change="changeTotal"></child>
+	</div>
+	<hr>
+
+	<div id=s1>
+		n: {{ n }}<br>
+		<child @change="changen"></child>	
+	</div>
+
+	<div id="s2">
+		n: {{n}}
+		<child v-model="n"></child>
+	</div>
+
+	<div id="s3">
+		n: {{n}}
+		<child v-model="n"></child>
+	</div>
+	<hr>
+
+	<div id="s4">
+		<child></child>
+	</div>
+	<hr>
+
+	<div id="s5">
+		<acom ref="a"></acom>
+		<bcom ref="b"></bcom>
+		<br>
+		<ccom ref="c"></ccom>
+		父组件的数据：{{msg}}
+		<br>
+		<button @click="getSonData()">我是父组件，我要拿到子组件的内容</button><br>
+		子组件的内容是：{{sondata}}
+	<div>
+	<hr>
+
+	<div id="s7">
+		<acom>
+			<p>我是 p 内容</p>
+		</acom>
+	</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
